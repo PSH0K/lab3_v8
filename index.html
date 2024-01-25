@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Input Form</title>
+    <script>
+        // Объект obji
+        var obji = {
+            value1: 'Значение 1',
+            value2: 'Значение 2',
+            value3: 'Значение 3'
+        };
+
+        // Функция для умножение
+        function multiplyNumeric(obj) {
+            for (var key in obj) {
+                if (typeof obj[key] === 'number') {
+                    obj[key] *= 2;
+                }
+            }
+        }
+
+        // Функция дла ввода значений
+        function updateObji() {
+            obji.value1 = parseFloat(document.getElementsByName('input1')[0].value) || document.getElementsByName('input1')[0].value;
+            obji.value2 = parseFloat(document.getElementsByName('input2')[0].value) || document.getElementsByName('input2')[0].value;
+            obji.value3 = parseFloat(document.getElementsByName('input3')[0].value) || document.getElementsByName('input3')[0].value;
+        }
+
+        // Функция для демонстрация значений
+        function displayObjiValues() {
+            alert('Value 1: ' + obji.value1 + '\nValue 2: ' + obji.value2 + '\nValue 3: ' + obji.value3);
+        }
+    </script>
+</head>
+<body>
+    <form method="post">
+        <label for="input1">Input 1:</label>
+        <input type="text" name="input1" value="" required><br>
+
+        <label for="input2">Input 2:</label>
+        <input type="text" name="input2" value="" required><br>
+
+        <label for="input3">Input 3:</label>
+        <input type="text" name="input3" value="" required><br>
+
+        <!-- Кнопка дла ввода значение -->
+        <button type="button" onclick="updateObji()">Внести значение</button>
+
+        <!-- Button to multiply numeric values of obji by two -->
+        <button type="button" onclick="multiplyNumeric(obji)">Умножить числовые значения на 2</button>
+
+        <!-- Button to display obji values -->
+        <button type="button" onclick="displayObjiValues()">Показать значения</button>
+    </form>
+</body>
+</html>
